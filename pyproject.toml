@@ -1,0 +1,36 @@
+[build-system]
+requires = ["briefcase"]
+
+[tool.briefcase]
+project_name = "hellopyside"
+bundle = "com.example"
+version = "0.0.1"
+url = "https://example.com/hellopyside"
+license = "BSD license"
+author = 'Jane Developer'
+author_email = "jane@example.com"
+
+[tool.briefcase.app.hellopyside]
+formal_name = "hellopyside"
+description = "My first application"
+icon = "src/hellopyside/resources/hellopyside"
+sources = ['src/hellopyside']
+requires = [
+    'pyside2==5.13.0',]
+
+
+[tool.briefcase.app.hellopyside.macOS]
+requires = []
+
+[tool.briefcase.app.hellopyside.linux]
+requires = []
+
+[tool.briefcase.app.hellopyside.windows]
+requires = []
+
+# Mobile deployments
+[tool.briefcase.app.hellopyside.iOS]
+requires = []
+
+[tool.briefcase.app.hellopyside.android]
+requires = []
