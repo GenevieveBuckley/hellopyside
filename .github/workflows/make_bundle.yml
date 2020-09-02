@@ -37,7 +37,12 @@ jobs:
         run: |
           briefcase create
           briefcase build
-          briefcase package
+      - name: Package Mac
+        if: runner.os == 'macOS'
+        run: briefcase package --no-sign
+      - name: Package Windows / Linux
+        if: runner.os != 'macOS'
+        run: briefcase package
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
