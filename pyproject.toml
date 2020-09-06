@@ -16,7 +16,7 @@ description = "My first application"
 icon = "src/hellopyside/resources/hellopyside"
 sources = ['src/hellopyside']
 requires = [
-    'pyside2==5.13.0',]
+    'pyside2==5.15',]
 
 
 [tool.briefcase.app.hellopyside.macOS]
