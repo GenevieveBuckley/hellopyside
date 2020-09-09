@@ -19,8 +19,8 @@ jobs:
           python-version: 3.8
       - name: Install Dependencies
         run: |
-          python -m pip install --upgrade pip 
-          python -m pip install briefcase
+          python -m pip install --upgrade pip
+          python -m pip install briefcase==0.3.2
       - name: Create and Build Bundle
         run: |
           briefcase create
@@ -31,3 +31,21 @@ jobs:
       - name: Package Windows / Linux
         if: runner.os != 'macOS'
         run: briefcase package
+      - name: Upload Artifact for Linux
+        uses: actions/upload-artifact@v2
+        if: runner.os == 'Linux'
+        with:
+          name: hellopyside-${{ env.version }}-${{ runner.os }}.AppImage
+          path: ${{ runner.os }}/**/AppImage
+      - name: Upload Artifact for MacOS
+        uses: actions/upload-artifact@v2
+        if: runner.os == 'MacOS'
+        with:
+          name: hellopyside-${{ env.version }}-${{ runner.os }}.dmg
+          path: ${{ runner.os }}/**/dmg
+      - name: Upload Artifact for Windows
+        uses: actions/upload-artifact@v2
+        if: runner.os == 'Windows'
+        with:
+          name: hellopyside-${{ env.version }}-${{ runner.os }}.msi
+          path: ${{ runner.os }}/**/msi
