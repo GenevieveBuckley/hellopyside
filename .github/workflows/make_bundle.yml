@@ -36,16 +36,16 @@ jobs:
         if: runner.os == 'Linux'
         with:
           name: hellopyside-${{ runner.os }}.AppImage
-          path: ${{ runner.os }}/**.AppImage
+          path: /**.AppImage
       - name: Upload Artifact for MacOS
         uses: actions/upload-artifact@v2
         if: runner.os == 'MacOS'
         with:
           name: hellopyside-${{ runner.os }}.dmg
-          path: ${{ runner.os }}/**.dmg
+          path: /**.dmg
       - name: Upload Artifact for Windows
         uses: actions/upload-artifact@v2
         if: runner.os == 'Windows'
         with:
           name: hellopyside-${{ runner.os }}.msi
-          path: ${{ runner.os }}/**.msi
+          path: /**.msi
